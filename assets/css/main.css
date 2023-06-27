@@ -60,3 +60,94 @@ nav{
         width: 55px;
     }
 }
+
+/*Projects*/
+#projects {
+    margin-bottom: 3rem
+}
+
+#projects .project {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px #0003
+}
+
+#projects .project:hover .details {
+    opacity: 1;
+}
+
+#projects .project img {
+    display: block;
+    height: 100%;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+#projects .project:hover img{
+    transform: scale(1.2);
+}
+
+#projects .project .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta el nivel de opacidad del fondo blur */
+    backdrop-filter: blur(10px); /* Ajusta el nivel de desenfoque */
+    color: #fff; /* Color del texto de los detalles */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#projects .project .details p {
+    padding-left: 5%;
+    padding-right: 5%
+}
+
+@media screen and (min-width: 992px) {
+    #projects .project .details p {
+        font-size:1.5rem
+    }
+}
+
+/*Links*/
+#projects .project .details .links_project {
+    width: 20%;
+    font-size: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+#projects .project .details .links_project a {
+    text-decoration: none
+}
+
+#projects .project .details .links_project a i {
+    color: #fff;
+    transition: .4s all ease-in-out
+}
+
+#projects .project .details .links_project a i:hover {
+    color: var(--bs-accent)
+}
+
+#projects .project .details .technology {
+    min-width: 50%;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: opacity(0.5);
+}
+
+#projects .project .details .technology img {
+    width: 2rem;
+    display: block
+}
