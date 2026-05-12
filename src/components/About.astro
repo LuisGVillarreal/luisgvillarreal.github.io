@@ -1,7 +1,8 @@
 ---
 const skillCategories = [
   {
-    title: 'Backend & Languages',
+    i18nKey: 'about.cat.backend',
+    title: 'Backend & Lenguajes',
     skills: [
       { icon: '/icons/csharp.svg', name: 'C# / .NET' },
       { icon: '/icons/javascript.svg', name: 'JavaScript' },
@@ -9,6 +10,7 @@ const skillCategories = [
     ],
   },
   {
+    i18nKey: 'about.cat.frontend',
     title: 'Frontend',
     skills: [
       { icon: '/icons/react.svg', name: 'React' },
@@ -16,6 +18,7 @@ const skillCategories = [
     ],
   },
   {
+    i18nKey: 'about.cat.db',
     title: 'Bases de datos',
     skills: [
       { icon: '/icons/sqlserver.svg', name: 'SQL Server' },
@@ -23,6 +26,7 @@ const skillCategories = [
     ],
   },
   {
+    i18nKey: 'about.cat.devops',
     title: 'DevOps & Infra',
     skills: [
       { icon: '/icons/docker.svg', name: 'Docker' },
@@ -42,18 +46,18 @@ const skillCategories = [
       <!-- About Text -->
       <div class="animate-on-scroll" data-animation="slide-right" data-delay="100">
         <h2 class="font-heading text-3xl md:text-4xl font-bold text-text-primary dark:text-dark-text-primary mb-3">
-          About <span class="gradient-text">Me</span>
+          <span data-i18n="about.title.1">Sobre </span><span class="gradient-text" data-i18n="about.title.2">Mí</span>
         </h2>
         <div class="section-divider mb-8"></div>
 
         <div class="space-y-4 text-text-secondary dark:text-dark-text-secondary text-base md:text-lg leading-relaxed">
-          <p>
+          <p data-i18n-html="about.p1">
             <strong class="text-text-primary dark:text-dark-text-primary">Desarrollador Full Stack con más de 3 años de experiencia</strong> en diseño e implementación de sistemas web robustos y escalables.
           </p>
-          <p>
+          <p data-i18n-html="about.p2">
             Especializado en arquitecturas backend con <strong class="text-primary dark:text-primary-light">.NET (C#)</strong>, APIs REST, interfaces con <strong class="text-primary dark:text-primary-light">React / Next.js</strong> y gestión de grandes volúmenes de datos en <strong class="text-primary dark:text-primary-light">SQL Server</strong> y <strong class="text-primary dark:text-primary-light">MongoDB</strong>.
           </p>
-          <p>
+          <p data-i18n-html="about.p3">
             Experiencia en despliegue con Docker, CI/CD, balanceo de carga con Nginx y optimización de rendimiento en entornos empresariales de alto volumen.
           </p>
         </div>
@@ -62,14 +66,14 @@ const skillCategories = [
       <!-- Skills -->
       <div class="animate-on-scroll" data-animation="slide-left" data-delay="200">
         <h2 class="font-heading text-3xl md:text-4xl font-bold text-text-primary dark:text-dark-text-primary mb-3">
-          <span class="gradient-text">Tecnologías</span>
+          <span class="gradient-text" data-i18n="about.skills">Tecnologías</span>
         </h2>
         <div class="section-divider mb-8"></div>
 
         <div class="space-y-8">
           {skillCategories.map((category) => (
             <div>
-              <h3 class="text-sm font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mb-3">
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mb-3" data-i18n={category.i18nKey}>
                 {category.title}
               </h3>
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">

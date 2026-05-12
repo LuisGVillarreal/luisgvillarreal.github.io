@@ -4,7 +4,8 @@ const projects = [
     image: '/projects/project_1.png',
     title: 'Auto Parts Store',
     description:
-      'Auto parts store project built with PHP using MVC architecture. It allows users to search and purchase items, while administrators can manage inventory and orders.',
+      'Proyecto de refaccionaria construido con PHP usando arquitectura MVC. Permite a los usuarios buscar y comprar artículos, mientras los administradores gestionan inventario y pedidos.',
+    i18nDesc: 'projects.desc1',
     github: 'https://github.com/LuisGVillarreal/Refaccionaria-MVC',
     demo: 'https://refaccionaria-autos.000webhostapp.com',
     demoType: 'link' as const,
@@ -18,7 +19,8 @@ const projects = [
     image: '/projects/project_2.png',
     title: 'PhotogramLaravel',
     description:
-      'This project simulates an Instagram-like social network using the Laravel framework, with likes, comments, a CRUD system, and the use of an AI API to generate tags for images.',
+      'Este proyecto simula una red social tipo Instagram usando el framework Laravel, con likes, comentarios, sistema CRUD y uso de una API de IA para generar tags en imágenes.',
+    i18nDesc: 'projects.desc2',
     github: 'https://github.com/LuisGVillarreal/PhotogramLaravel',
     demo: null,
     demoType: 'video' as const,
@@ -32,7 +34,8 @@ const projects = [
     image: '/projects/project_3.png',
     title: 'Blog API REST',
     description:
-      'The blog API is an interface for interacting with a blog system, enabling tasks like user registration, category management, post publication and updates, and obtaining detailed information about users, categories, and posts.',
+      'API de blog para interactuar con un sistema de blog, permitiendo registro de usuarios, gestión de categorías, publicación y actualización de posts, y obtención de información detallada.',
+    i18nDesc: 'projects.desc3',
     github: 'https://github.com/LuisGVillarreal/api-rest-laravel-blog',
     demo: 'https://documenter.getpostman.com/view/25432378/2s93zCY17t',
     demoType: 'link' as const,
@@ -52,7 +55,7 @@ const projects = [
         class="animate-on-scroll font-heading text-3xl md:text-4xl font-bold text-text-primary dark:text-dark-text-primary mb-3"
         data-animation="slide-up"
       >
-        My <span class="gradient-text">Projects</span>
+        <span data-i18n="projects.title.1">Mis </span><span class="gradient-text" data-i18n="projects.title.2">Proyectos</span>
       </h2>
       <div class="section-divider mx-auto"></div>
     </div>
@@ -76,7 +79,7 @@ const projects = [
 
             <!-- Hover Overlay -->
             <div class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-6">
-              <p class="text-white text-sm md:text-base text-center leading-relaxed mb-6 max-w-md">
+              <p class="text-white text-sm md:text-base text-center leading-relaxed mb-6 max-w-md" data-i18n={project.i18nDesc}>
                 {project.description}
               </p>
 
@@ -144,7 +147,7 @@ const projects = [
   class="fixed inset-0 z-[100] w-full max-w-3xl rounded-2xl bg-dark-surface border border-dark-border shadow-2xl backdrop:bg-black/70 backdrop:backdrop-blur-sm p-0 m-auto"
 >
   <div class="flex items-center justify-between p-4 border-b border-dark-border">
-    <h3 class="font-heading font-semibold text-lg text-white">PhotogramLaravel Demo</h3>
+    <h3 class="font-heading font-semibold text-lg text-white" data-i18n="projects.modal">Demo de PhotogramLaravel</h3>
     <button
       id="close-video-modal"
       type="button"

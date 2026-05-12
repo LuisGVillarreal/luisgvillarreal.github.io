@@ -11,7 +11,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +25,7 @@ const {
     <meta property="og:url" content="https://luisgvillarreal.github.io" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,6 +55,114 @@ const {
           (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
         ) {
           document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- i18n translations -->
+    <script is:inline>
+      window.__i18n = {
+        es: {
+          // Nav
+          'nav.home': 'Inicio',
+          'nav.about': 'Sobre mí',
+          'nav.projects': 'Proyectos',
+          'nav.contact': 'Contacto',
+          // Hero
+          'hero.greeting': '¡Hola! 👋',
+          'hero.intro': 'Soy ',
+          'hero.role': 'Desarrollador Full Stack',
+          // About
+          'about.title.1': 'Sobre ',
+          'about.title.2': 'Mí',
+          'about.p1': '<strong class="text-text-primary dark:text-dark-text-primary">Desarrollador Full Stack con más de 3 años de experiencia</strong> en diseño e implementación de sistemas web robustos y escalables.',
+          'about.p2': 'Especializado en arquitecturas backend con <strong class="text-primary dark:text-primary-light">.NET (C#)</strong>, APIs REST, interfaces con <strong class="text-primary dark:text-primary-light">React / Next.js</strong> y gestión de grandes volúmenes de datos en <strong class="text-primary dark:text-primary-light">SQL Server</strong> y <strong class="text-primary dark:text-primary-light">MongoDB</strong>.',
+          'about.p3': 'Experiencia en despliegue con Docker, CI/CD, balanceo de carga con Nginx y optimización de rendimiento en entornos empresariales de alto volumen.',
+          'about.skills': 'Tecnologías',
+          'about.cat.backend': 'Backend & Lenguajes',
+          'about.cat.frontend': 'Frontend',
+          'about.cat.db': 'Bases de datos',
+          'about.cat.devops': 'DevOps & Infra',
+          // Projects
+          'projects.title.1': 'Mis ',
+          'projects.title.2': 'Proyectos',
+          'projects.desc1': 'Proyecto de refaccionaria construido con PHP usando arquitectura MVC. Permite a los usuarios buscar y comprar artículos, mientras los administradores gestionan inventario y pedidos.',
+          'projects.desc2': 'Este proyecto simula una red social tipo Instagram usando el framework Laravel, con likes, comentarios, sistema CRUD y uso de una API de IA para generar tags en imágenes.',
+          'projects.desc3': 'API de blog para interactuar con un sistema de blog, permitiendo registro de usuarios, gestión de categorías, publicación y actualización de posts, y obtención de información detallada.',
+          'projects.modal': 'Demo de PhotogramLaravel',
+          // Contact
+          'contact.title.1': 'Ponte en ',
+          'contact.title.2': 'Contacto',
+          'contact.subtitle': '¡No dudes en escribirme, me encantaría saber de ti!',
+          // Footer
+          'footer.made': 'Hecho por ',
+          'footer.copy': 'todos los derechos reservados',
+        },
+        en: {
+          // Nav
+          'nav.home': 'Home',
+          'nav.about': 'About',
+          'nav.projects': 'Projects',
+          'nav.contact': 'Contact',
+          // Hero
+          'hero.greeting': 'Hi! 👋',
+          'hero.intro': "I'm ",
+          'hero.role': 'Full Stack Developer',
+          // About
+          'about.title.1': 'About ',
+          'about.title.2': 'Me',
+          'about.p1': '<strong class="text-text-primary dark:text-dark-text-primary">Full Stack Developer with 3+ years of experience</strong> designing and implementing robust, scalable web systems.',
+          'about.p2': 'Specialized in backend architectures with <strong class="text-primary dark:text-primary-light">.NET (C#)</strong>, REST APIs, interfaces with <strong class="text-primary dark:text-primary-light">React / Next.js</strong> and managing large data volumes in <strong class="text-primary dark:text-primary-light">SQL Server</strong> and <strong class="text-primary dark:text-primary-light">MongoDB</strong>.',
+          'about.p3': 'Experience in deployment with Docker, CI/CD, load balancing with Nginx and performance optimization in high-volume enterprise environments.',
+          'about.skills': 'Technologies',
+          'about.cat.backend': 'Backend & Languages',
+          'about.cat.frontend': 'Frontend',
+          'about.cat.db': 'Databases',
+          'about.cat.devops': 'DevOps & Infra',
+          // Projects
+          'projects.title.1': 'My ',
+          'projects.title.2': 'Projects',
+          'projects.desc1': 'Auto parts store project built with PHP using MVC architecture. It allows users to search and purchase items, while administrators can manage inventory and orders.',
+          'projects.desc2': 'This project simulates an Instagram-like social network using the Laravel framework, with likes, comments, a CRUD system, and the use of an AI API to generate tags for images.',
+          'projects.desc3': 'The blog API is an interface for interacting with a blog system, enabling tasks like user registration, category management, post publication and updates, and obtaining detailed information.',
+          'projects.modal': 'PhotogramLaravel Demo',
+          // Contact
+          'contact.title.1': 'Get in ',
+          'contact.title.2': 'Touch',
+          'contact.subtitle': "Feel free to reach out — I'd love to hear from you!",
+          // Footer
+          'footer.made': 'Made by ',
+          'footer.copy': 'copyright all rights reserved',
+        },
+      };
+
+      function applyLanguage(lang) {
+        const t = window.__i18n[lang];
+        if (!t) return;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (t[key] != null) el.textContent = t[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-html');
+          if (t[key] != null) el.innerHTML = t[key];
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        // Update select elements
+        document.querySelectorAll('#lang-select, #lang-select-mobile').forEach((sel) => {
+          sel.value = lang;
+        });
+      }
+
+      // Apply saved language on load
+      (function () {
+        const saved = localStorage.getItem('lang') || 'es';
+        // Defer until DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => applyLanguage(saved));
+        } else {
+          applyLanguage(saved);
         }
       })();
     </script>
