@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ── Dark Mode: class-based toggle ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ═══════════════════════════════════════════════════════════════
    DESIGN SYSTEM — Luis Villarreal Portfolio
    Tailwind CSS v4 — CSS-first configuration
