@@ -1,0 +1,145 @@
+---
+
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <nav class="glass max-w-7xl mx-auto my-3 rounded-2xl px-6 py-3 flex items-center justify-between">
+    <!-- Name / Brand -->
+    <a href="#home" class="flex-shrink-0">
+      <span class="font-heading text-xl md:text-2xl font-bold italic gradient-text">
+        Luis Villarreal
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-1">
+      <a href="#home" class="nav-link relative px-4 py-2 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.home">Inicio</a>
+      <a href="#about" class="nav-link relative px-4 py-2 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.about">Sobre mí</a>
+      <a href="#projects" class="nav-link relative px-4 py-2 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.projects">Proyectos</a>
+      <a href="#contact" class="nav-link relative px-4 py-2 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.contact">Contacto</a>
+
+      <!-- Language Selector -->
+      <select
+        id="lang-select"
+        aria-label="Select language"
+        class="ml-2 px-2 py-2 rounded-xl bg-surface-alt dark:bg-dark-surface-elevated text-text-secondary dark:text-dark-text-secondary text-sm font-medium border border-border dark:border-dark-border hover:border-primary/50 dark:hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all duration-300 cursor-pointer appearance-none bg-no-repeat bg-[length:12px] bg-[right_8px_center]"
+        style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22%2394a3b8%22><path d=%22M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z%22/></svg>'); padding-right: 24px;"
+      >
+        <option value="es">🇲🇽 ES</option>
+        <option value="en">🇺🇸 EN</option>
+      </select>
+
+      <!-- Dark Mode Toggle -->
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="ml-1 p-2.5 rounded-xl bg-surface-alt dark:bg-dark-surface-elevated text-text-secondary dark:text-dark-text-secondary hover:text-primary dark:hover:text-primary-light transition-all duration-300 hover:scale-110"
+      >
+        <i class="bi bi-moon-fill text-lg dark:hidden"></i>
+        <i class="bi bi-sun-fill text-lg hidden dark:inline"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="flex items-center gap-2 md:hidden">
+      <!-- Language Selector Mobile -->
+      <select
+        id="lang-select-mobile"
+        aria-label="Select language"
+        class="px-2 py-2 rounded-xl bg-surface-alt dark:bg-dark-surface-elevated text-text-secondary dark:text-dark-text-secondary text-sm font-medium border border-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all duration-300 cursor-pointer appearance-none bg-no-repeat bg-[length:12px] bg-[right_6px_center]"
+        style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22%2394a3b8%22><path d=%22M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z%22/></svg>'); padding-right: 22px;"
+      >
+        <option value="es">🇲🇽</option>
+        <option value="en">🇺🇸</option>
+      </select>
+
+      <button
+        id="theme-toggle-mobile"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="p-2.5 rounded-xl bg-surface-alt dark:bg-dark-surface-elevated text-text-secondary dark:text-dark-text-secondary hover:text-primary transition-all duration-300"
+      >
+        <i class="bi bi-moon-fill dark:hidden"></i>
+        <i class="bi bi-sun-fill hidden dark:inline"></i>
+      </button>
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        aria-label="Open menu"
+        class="p-2.5 rounded-xl bg-surface-alt dark:bg-dark-surface-elevated text-text-secondary dark:text-dark-text-secondary hover:text-primary transition-all duration-300"
+      >
+        <i class="bi bi-list text-xl" id="menu-icon-open"></i>
+        <i class="bi bi-x-lg text-xl hidden" id="menu-icon-close"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden glass mx-3 rounded-2xl overflow-hidden transition-all duration-300"
+  >
+    <div class="flex flex-col p-4 gap-1">
+      <a href="#home" class="mobile-nav-link px-4 py-3 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-xl hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.home">Inicio</a>
+      <a href="#about" class="mobile-nav-link px-4 py-3 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-xl hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.about">Sobre mí</a>
+      <a href="#projects" class="mobile-nav-link px-4 py-3 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-xl hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.projects">Proyectos</a>
+      <a href="#contact" class="mobile-nav-link px-4 py-3 text-sm font-semibold text-text-primary dark:text-dark-text-primary rounded-xl hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300" data-i18n="nav.contact">Contacto</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Dark mode toggle
+  function toggleTheme() {
+    const html = document.documentElement;
+    html.classList.toggle('dark');
+    const isDark = html.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
+
+  // Language selector
+  document.getElementById('lang-select')?.addEventListener('change', (e) => {
+    applyLanguage((e.target as HTMLSelectElement).value);
+  });
+  document.getElementById('lang-select-mobile')?.addEventListener('change', (e) => {
+    applyLanguage((e.target as HTMLSelectElement).value);
+  });
+
+  // Mobile menu
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    menuIconOpen?.classList.toggle('hidden');
+    menuIconClose?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+    });
+  });
+
+  // Navbar background on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('shadow-lg');
+    } else {
+      header?.classList.remove('shadow-lg');
+    }
+  });
+</script>

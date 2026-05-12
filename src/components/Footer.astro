@@ -1,0 +1,42 @@
+---
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  { href: 'https://github.com/LuisGVillarreal', icon: 'bi-github', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/luis-villarreal/', icon: 'bi-linkedin', label: 'LinkedIn' },
+];
+---
+
+<footer class="relative bg-dark-surface border-t border-dark-border overflow-hidden">
+  <!-- Gradient accent line -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <div class="flex flex-col items-center gap-5">
+      <!-- Branding -->
+      <p class="text-white text-lg font-light">
+        <span data-i18n="footer.made">Hecho por </span><strong class="font-semibold gradient-text">Luis Villarreal</strong>
+      </p>
+
+      <!-- Social Links -->
+      <div class="flex items-center gap-4">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.label}
+            class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-primary/20 hover:border-primary/40 hover:scale-110 transition-all duration-300"
+          >
+            <i class={`bi ${link.icon} text-lg`}></i>
+          </a>
+        ))}
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-dark-text-muted text-sm">
+        &copy; {currentYear} <span data-i18n="footer.copy">todos los derechos reservados</span>
+      </p>
+    </div>
+  </div>
+</footer>
