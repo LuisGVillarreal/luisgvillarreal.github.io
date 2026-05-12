@@ -1,0 +1,144 @@
+---
+const experiences = [
+  {
+    role: 'Desarrollador Full Stack',
+    company: 'Inkairos',
+    period: '05/2023 – Presente',
+    location: 'Coyoacán, CDMX, México',
+    highlights: [
+      'Diseñé e implementé APIs REST modulares en .NET (C#), aplicando procesamiento paralelo, optimización de código y refactorización de lógica crítica, reduciendo en ~30% los tiempos de ejecución en tareas de alto volumen.',
+      'Desarrollé interfaces administrativas con React y Next.js, integradas con servicios REST para facilitar la operación interna.',
+      'Diseñé y optimicé bases de datos en SQL Server, mejorando consultas y stored procedures para acelerar el desempeño.',
+      'Implementé pipelines de agregación e índices en MongoDB para optimizar reportes sobre colecciones de 10M+ registros, reduciendo tiempos de respuesta.',
+      'Automaticé procesos CI/CD con GitHub Actions y Docker, reduciendo en 50% el tiempo de despliegue.',
+      'Configuré Nginx como reverse proxy y balanceador de carga para API crítica, mejorando alta disponibilidad.',
+      'Administré infraestructura en Linux, asegurando estabilidad operativa de aplicaciones y APIs en producción.',
+    ],
+    tech: ['C#/.NET', 'React', 'Next.js', 'SQL Server', 'MongoDB', 'Docker', 'Nginx', 'Linux'],
+  },
+];
+
+const education = [
+  {
+    degree: 'Ing. en Sistemas Computacionales',
+    institution: 'Tecnológico Nacional de México, Campus Tláhuac',
+    period: '2017 – 2023',
+    location: 'Tláhuac, CDMX, México',
+    speciality: 'Especialidad en Administración de Servicios Web',
+  },
+];
+---
+
+<section id="experience" class="py-20 md:py-28 bg-surface-alt dark:bg-dark-surface-alt transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Experience -->
+    <div class="text-center mb-16">
+      <h2
+        class="animate-on-scroll font-heading text-3xl md:text-4xl font-bold text-text-primary dark:text-dark-text-primary mb-3"
+        data-animation="slide-up"
+      >
+        Experiencia <span class="gradient-text">Laboral</span>
+      </h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="space-y-8 mb-24">
+      {experiences.map((exp, idx) => (
+        <div
+          class="animate-on-scroll relative rounded-2xl bg-surface dark:bg-dark-surface-elevated border border-border dark:border-dark-border p-6 md:p-8 shadow-lg hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+          data-animation="slide-up"
+          data-delay={String(idx * 150)}
+        >
+          <!-- Header -->
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6">
+            <div>
+              <h3 class="font-heading text-xl md:text-2xl font-bold text-text-primary dark:text-dark-text-primary">
+                {exp.role}
+              </h3>
+              <p class="text-primary dark:text-primary-light font-semibold text-lg">
+                {exp.company}
+              </p>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-sm font-medium">
+                <i class="bi bi-calendar3"></i>
+                {exp.period}
+              </span>
+              <span class="text-sm text-text-muted dark:text-dark-text-muted flex items-center gap-1.5">
+                <i class="bi bi-geo-alt-fill"></i>
+                {exp.location}
+              </span>
+            </div>
+          </div>
+
+          <!-- Highlights -->
+          <ul class="space-y-3 mb-6">
+            {exp.highlights.map((h) => (
+              <li class="flex items-start gap-3 text-text-secondary dark:text-dark-text-secondary text-sm md:text-base leading-relaxed">
+                <i class="bi bi-check-circle-fill text-accent mt-0.5 flex-shrink-0"></i>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Tech tags -->
+          <div class="flex flex-wrap gap-2">
+            {exp.tech.map((t) => (
+              <span class="px-3 py-1 text-xs rounded-full bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent-light border border-accent/20 dark:border-accent/30 font-medium">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Education -->
+    <div class="text-center mb-16">
+      <h2
+        class="animate-on-scroll font-heading text-3xl md:text-4xl font-bold text-text-primary dark:text-dark-text-primary mb-3"
+        data-animation="slide-up"
+      >
+        <span class="gradient-text">Formación</span> Académica
+      </h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="space-y-6">
+      {education.map((edu, idx) => (
+        <div
+          class="animate-on-scroll relative rounded-2xl bg-surface dark:bg-dark-surface-elevated border border-border dark:border-dark-border p-6 md:p-8 shadow-lg hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+          data-animation="scale-in"
+          data-delay={String(idx * 150)}
+        >
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            <div>
+              <h3 class="font-heading text-xl font-bold text-text-primary dark:text-dark-text-primary flex items-center gap-2">
+                <i class="bi bi-mortarboard-fill text-primary"></i>
+                {edu.degree}
+              </h3>
+              <p class="text-primary dark:text-primary-light font-semibold mt-1">
+                {edu.institution}
+              </p>
+              {edu.speciality && (
+                <p class="text-text-secondary dark:text-dark-text-secondary text-sm mt-1 italic">
+                  {edu.speciality}
+                </p>
+              )}
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-sm font-medium">
+                <i class="bi bi-calendar3"></i>
+                {edu.period}
+              </span>
+              <span class="text-sm text-text-muted dark:text-dark-text-muted flex items-center gap-1.5">
+                <i class="bi bi-geo-alt-fill"></i>
+                {edu.location}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
