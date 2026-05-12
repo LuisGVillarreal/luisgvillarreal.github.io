@@ -1,0 +1,94 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Luis Villarreal — Web Developer specializing in Back-End technologies, PHP, Laravel, TypeScript, and Angular.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Luis Villarreal" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://luisgvillarreal.github.io" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body class="antialiased">
+    <slot />
+
+    <!-- Dark Mode Script (runs before paint to avoid flash) -->
+    <script is:inline>
+      (function () {
+        const theme = localStorage.getItem('theme');
+        if (
+          theme === 'dark' ||
+          (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- Scroll Animation Observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              // Get the animation class from data attribute
+              const animClass = entry.target.dataset.animation;
+              if (animClass) {
+                entry.target.style.animation = `var(--animate-${animClass})`;
+              }
+              // Add stagger delay if present
+              const delay = entry.target.dataset.delay;
+              if (delay) {
+                entry.target.style.animationDelay = `${delay}ms`;
+              }
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px',
+        }
+      );
+
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
